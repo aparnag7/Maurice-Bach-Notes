@@ -26,7 +26,7 @@ The algorithm is given below:
 	convert file name to inode (Algorithm: namei);
 	if (file does not exist or access is not permitted)
 		return (error);
-	allocate file table entry for inode, initialize count, offset;
+	allocate file table entry for inode, initialize count(ref count), offset;
 	allocate user file descriptor entry, set pointer to file table entry;
 	if (type of open specifies truncate file)
 		free all blocks (algorithm: free);
