@@ -103,7 +103,7 @@ A process needs to be swapped as a result of its user stack growth or invocation
 
 **Swapping Processes In**
 
-The swapper process (process 0), is the only process that swaps processes into memory from swap devices. After system initialization, the swapper goes into an infinite loop, where its only task is to do process swapping. The swapper sleeps if there is no work for it. Swapper executes only in kernel mode.
+The swapper process (process 0), is the only process that swaps processes into memory from swap devices. After system initialization, the swapper goes into an infinite loop, where its only task is to do process swapping. It attempts to swap processes in from the swap device, and it swaps processes out if it needs space in main memory.  The swapper sleeps if there is no work for it. Swapper executes only in kernel mode.
 
 When swapper wakes up to swap processes in, it selects the processes which has spent the longest time in the state "ready to run but swapped out". The algorithm *swapper* is given below:
 
