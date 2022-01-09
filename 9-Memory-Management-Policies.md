@@ -114,7 +114,7 @@ When swapper wakes up to swap processes in, it selects the processes which has s
  */
 
 {
-	loop:
+	loop: //bringing from swap space to main memory
 		for (all swapped out processes that are ready to run)
 			pick process swapped out longest;
 		if (no such process)
@@ -127,7 +127,7 @@ When swapper wakes up to swap processes in, it selects the processes which has s
 			swap process in;
 			goto loop;
 		}
-	// loop2: here in revised algorithm given later
+	// loop2: (here in revised algorithm given later) bringing from main memory to swap space
 		for (all processes loaded in main memory, not zombie and not locked in memory)
 		{
 			if (there is a sleeping process)
